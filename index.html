@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Countile</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="src/config.js" defer></script>
+  <script src="src/game.js" defer></script>
+</head>
+
+<body>
+  <main class="app">
+    <section class="play-area" aria-labelledby="title">
+      <button id="settings-button" class="corner-button settings-button" type="button" aria-expanded="false"
+        aria-controls="settings-panel" aria-label="Settings">
+        <span></span>
+        <span></span>
+        <span></span>
+        <output id="settings-summary" class="settings-summary" aria-hidden="true"></output>
+      </button>
+      <button id="info-button" class="info-button" type="button" aria-expanded="false" aria-controls="info-panel"
+        aria-label="How to play">i</button>
+      <button id="share-button" class="corner-button share-button" type="button"
+        aria-label="Copy puzzle" title="Copy puzzle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <button id="piece-size-button" class="corner-button piece-size-button" type="button" hidden
+        aria-label="Switch piece size">4</button>
+
+      <aside id="settings-panel" class="settings-panel" hidden>
+        <fieldset>
+          <legend>Board</legend>
+          <label>
+            <input type="radio" name="board-size" value="4x4" checked>
+            4 x 4
+          </label>
+          <label>
+            <input type="radio" name="board-size" value="4x5">
+            4 x 5
+          </label>
+          <label>
+            <input type="radio" name="board-size" value="5x4">
+            5 x 4
+          </label>
+          <label>
+            <input type="radio" name="board-size" value="5x5">
+            5 x 5
+          </label>
+          <label>
+            <input type="radio" name="board-size" value="5x6">
+            5 x 6
+          </label>
+          <label>
+            <input type="radio" name="board-size" value="6x5">
+            6 x 5
+          </label>
+          <label>
+            <input type="radio" name="board-size" value="4x6">
+            4 x 6
+          </label>
+          <label>
+            <input type="radio" name="board-size" value="6x4">
+            6 x 4
+          </label>
+          <label>
+            <input type="radio" name="board-size" value="6x6">
+            6 x 6
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Numbers</legend>
+          <label>
+            <input id="zero-mode" type="checkbox" checked disabled>
+            Digits 1-4
+          </label>
+          <label>
+            <input id="untimed-mode" type="checkbox">
+            Untimed mode
+          </label>
+        </fieldset>
+      </aside>
+
+      <aside id="info-panel" class="info-panel" hidden>
+        <h2>How to play</h2>
+
+        <ul class="rules-list">
+          <li>Cover the board with numbered tetrominoes.</li>
+          <li>Each piece uses exactly <span id="rule-tile-count">four</span> tiles.</li>
+          <li>Tiles must touch along their edges.</li>
+          <li>Read each piece left-to-right, top-to-bottom.</li>
+          <li>The digits in a piece must be non-decreasing and use only 1-4.</li>
+          <li>Tap a completed piece to inspect it, then tap its corner to remove it.</li>
+        </ul>
+
+        <div class="example-columns" aria-label="Examples">
+          <div>
+            <span>valid</span>
+            <div id="example-valid-straight" class="example-grid is-valid" aria-label="Valid straight piece"></div>
+            <div id="example-valid-bent" class="example-grid is-valid" aria-label="Valid bent piece"></div>
+          </div>
+          <div>
+            <span>invalid</span>
+            <div id="example-invalid-disconnected" class="example-grid is-invalid-example"
+              aria-label="Invalid disconnected piece"></div>
+            <div id="example-invalid-short" class="example-grid is-invalid-example"
+              aria-label="Invalid incomplete piece"></div>
+          </div>
+        </div>
+      </aside>
+
+      <aside id="keyboard-panel" class="keyboard-panel" aria-label="Keyboard shortcuts" hidden>
+        <h2>Keyboard shortcuts</h2>
+        <dl class="shortcut-list">
+          <div>
+            <dt>?</dt>
+            <dd>This panel</dd>
+          </div>
+          <div>
+            <dt>I</dt>
+            <dd>Info</dd>
+          </div>
+          <div>
+            <dt>R</dt>
+            <dd>Restart</dd>
+          </div>
+          <div>
+            <dt>N</dt>
+            <dd>New</dd>
+          </div>
+          <div>
+            <dt>P</dt>
+            <dd>Print URL</dd>
+          </div>
+          <div>
+            <dt>4</dt>
+            <dd>Tetrominoes</dd>
+          </div>
+        </dl>
+      </aside>
+
+      <aside id="print-panel" class="print-panel" aria-label="Puzzle URL" hidden>
+        <h2>Puzzle URL</h2>
+        <input id="print-grid" class="print-grid" type="text" readonly>
+      </aside>
+
+      <div class="masthead">
+        <h1 id="title" class="title-hint" tabindex="0"
+          data-hint="Tile the board with numbered tetrominoes.">Countile</h1>
+      </div>
+
+      <div id="board" class="board" aria-label="Countile board"></div>
+
+      <div id="selection-lines" class="selection-lines" aria-label="Selections"></div>
+
+      <div id="completion-message" class="completion-message" aria-live="polite"></div>
+
+      <div class="toolbar" aria-label="Game controls">
+        <button id="restart-button" type="button">Restart</button>
+        <button id="new-button" type="button">New</button>
+      </div>
+    </section>
+  </main>
+</body>
+
+</html>
