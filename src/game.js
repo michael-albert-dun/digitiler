@@ -1,7 +1,7 @@
 const DEFAULT_PIECE_SIZE = 4;
 const GROUP_COLOR_COUNT = 9;
-const SESSION_STORAGE_KEY = "countile.currentPuzzle.v3";
-const CONFIG = window.CountileConfig || {};
+const SESSION_STORAGE_KEY = "digitile.currentPuzzle.v1";
+const CONFIG = window.DigitileConfig || {};
 const URL_FLAGS = new URLSearchParams(window.location.search);
 const ENABLE_6X6 = CONFIG.enable6x6 === true || parseUrlBoolean(URL_FLAGS.get("enable6x6"), false);
 const DEFAULT_RULESET = "sum-last";

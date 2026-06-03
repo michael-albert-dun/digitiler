@@ -1,6 +1,6 @@
-# Countile
+# Digitile
 
-Countile is a small static prototype for tiling rectangular grids with numbered
+Digitile is a small static prototype for tiling rectangular grids with numbered
 tetrominoes. It was derived from the UI plumbing of Tilexicon, but replaces word
 validation with numeric constraints.
 
