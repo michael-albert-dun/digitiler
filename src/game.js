@@ -1608,12 +1608,7 @@ function handleShortcut(event) {
 
   const key = event.key.toLowerCase();
   const shortcuts = {
-    "?": () => toggleKeyboardPanel(),
-    i: () => toggleInfoPanel(event),
-    n: () => startNewGame(),
-    p: () => showPrintPanel(),
-    r: () => restartGame(),
-    4: () => setPieceSize(4)
+    i: () => toggleInfoPanel(event)
   };
 
   if (!shortcuts[key]) {
